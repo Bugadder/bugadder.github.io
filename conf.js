@@ -12,7 +12,7 @@ jsproxy_config({
 
   // Node configuration
   node_map: {
-/*    'demo-hk': {
+    'demo-hk': {
       label: 'Demo Service-Hong Kong Node',
       lines: {
         // Host: weight
@@ -26,7 +26,7 @@ jsproxy_config({
         'node-aliyun-sg.etherdream.com:8443': 1,
       },
     },
-*/
+
     'mysite': {
       label: 'Current site',
       lines: {
