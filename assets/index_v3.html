@@ -1,178 +1,176 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <script async src="https://arc.io/widget.min.js#iidD4GEB"></script>
-      <title>CHINTU PROXY</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-      <link rel="icon" href="//raw.githubusercontent.com/ramdibaaz/ramdibaaz.github.io/master/assets/favicon.ico">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-      <base target="_blank">
-      <style>
-         body {
-         padding: 0 0.5em;
-         }
-         .box {
-         margin-top: 1em;
-         }
-         #txtURL {
-         width: 100%;
-         height: 2em;
-         text-indent: 0.5em;
-         padding: 0.25em 0;
-         }
-         #btnGo {
-         width: 100%;
-         font-size: 1.5em;
-         }
-         list {
-         margin: 1em;
-         border-radius: 20%;
-         }
-      </style>
-   </head>
-   <body>
-      <div class="container">
-      <div class="py-5 text-center"><img src="https://raw.githubusercontent.com/ramdibaaz/ramdibaaz.github.io/master/assets/bhadoo-proxy-network-logo.png" alt="bhadoo-proxy-network-logo" height="100"></div>
-      <div class="col-md-12 order-md-1">
-      <div class="box">
-         <input id="txtURL" class="form-control form-control-lg" type="text" value="" placeholder="Enter URL Address Or any Search" autofocus="">
-      </div>
-      <div class="box">
-         <button id="btnGo" class="btn btn-primary btn-lg btn-block">Go</button>
-      </div>
-      <div class="box">
-         <span>CHANGE SERVER:</span>
-         <select id="selNode"></select>
-      </div>
-      <div class="box" id="list">
-      </div>
-      <script>
-         const PAGE_CONF_SET = 110
-         const PAGE_CONF_GET = 111
-         
-         const SW_CONF_RETURN = 112
-         const SW_CONF_CHANGE = 113
-         
-         const PAGE_READY_CHECK = 200
-         const SW_READY = 201
-         
-         const sw = navigator.serviceWorker
-         
-         
-         sw.addEventListener('message', onSwMsg)
-         sendMsgToSw(PAGE_READY_CHECK)
-         
-         btnGo.onclick = function() {
-           const text = txtURL.value.trim()
-           if (text) {
-             const url = './-----' + text
-             open(url, '_blank', 'noopener,noreferrer')
-           }
-         }
-         txtURL.onkeypress = function(e) {
-           if (e.keyCode === 13) {
-             btnGo.onclick()
-           }
-         }
-         txtURL.setSelectionRange(0, txtURL.value.length)
-         
-         
-         function onSwMsg(e) {
-           const [cmd, msg] = e.data
-         
-           switch (cmd) {
-           case SW_CONF_RETURN:
-             conf = msg
-             showConf()
-             break
-         
-           case SW_CONF_CHANGE:
-             conf = msg
-             updateSelected()
-             break
-         
-           case SW_READY:
-             console.log('sw ready')
-             showIcons()
-             sendMsgToSw(PAGE_CONF_GET)
-             break
-           }
-         }
-         
-         function onSwFail(err) {
-           txtURL.value = err
-         }
-         
-         selNode.onchange = function() {
-           const item = this.options[this.selectedIndex]
-           const node = item.value
-           conf.node_default = node
-           sendMsgToSw(PAGE_CONF_SET, conf)
-         }
-         
-         function sendMsgToSw(cmd, val) {
-           const ctl = sw.controller
-           if (!ctl) {
-             console.log('ctl is null')
-             return
-           }
-           ctl.postMessage([cmd, val])
-         }
-         
-         const SITE_LIST = [
-           ['google', 'www.giybf.com/'],
-           ['youtube', 'www.youtube.com/'],
-           ['twitter', 'www.twitter.com/'],
-           ['flickr', 'www.pornhub.com/'],
-           ['quora', 'www.quora.com/'],
-           ['twitch', 'www.twitch.tv/'],
-           ['reddit', 'www.reddit.com'],
-           ['wiki', 'en.wikipedia.org/'],
-           ['gist', 'gist.github.com/'],
-           ['facebook', 'www.facebook.com/'],
-           ['blogger', 'www.blogger.com/'],
-         ]
-         
-         function showIcons() {
-           list.innerHTML = SITE_LIST.map(v => {
-             let [id, url] = v
-             url = url || `www.${id}.com/`
-             return `\
+    <head>
+        <script async src="https://arc.io/widget.min.js#iidD4GEB"></script>
+        <title>CHINTU PROXY</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="//raw.githubusercontent.com/ramdibaaz/ramdibaaz.github.io/master/assets/favicon.ico" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        <base target="_blank" />
+        <style>
+            body {
+                padding: 0 0.5em;
+            }
+            .box {
+                margin-top: 1em;
+            }
+            #txtURL {
+                width: 100%;
+                height: 2em;
+                text-indent: 0.5em;
+                padding: 0.25em 0;
+            }
+            #btnGo {
+                width: 100%;
+                font-size: 1.5em;
+            }
+            list {
+                margin: 1em;
+                border-radius: 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="py-5 text-center"><img src="https://raw.githubusercontent.com/ramdibaaz/ramdibaaz.github.io/master/assets/bhadoo-proxy-network-logo.png" alt="bhadoo-proxy-network-logo" height="100" /></div>
+            <div class="col-md-12 order-md-1">
+                <div class="box">
+                    <input id="txtURL" class="form-control form-control-lg" type="text" value="" placeholder="Enter URL Address Or any Search" autofocus="" />
+                </div>
+                <div class="box">
+                    <button id="btnGo" class="btn btn-primary btn-lg btn-block">Go</button>
+                </div>
+                <div class="box">
+                    <span>CHANGE SERVER:</span>
+                    <select id="selNode"></select>
+                </div>
+                <script>
+                    const PAGE_CONF_SET = 110;
+                    const PAGE_CONF_GET = 111;
+
+                    const SW_CONF_RETURN = 112;
+                    const SW_CONF_CHANGE = 113;
+
+                    const PAGE_READY_CHECK = 200;
+                    const SW_READY = 201;
+
+                    const sw = navigator.serviceWorker;
+
+                    sw.addEventListener("message", onSwMsg);
+                    sendMsgToSw(PAGE_READY_CHECK);
+
+                    btnGo.onclick = function () {
+                        const text = txtURL.value.trim();
+                        if (text) {
+                            const url = "./-----" + text;
+                            open(url, "_blank", "noopener,noreferrer");
+                        }
+                    };
+                    txtURL.onkeypress = function (e) {
+                        if (e.keyCode === 13) {
+                            btnGo.onclick();
+                        }
+                    };
+                    txtURL.setSelectionRange(0, txtURL.value.length);
+
+                    function onSwMsg(e) {
+                        const [cmd, msg] = e.data;
+
+                        switch (cmd) {
+                            case SW_CONF_RETURN:
+                                conf = msg;
+                                showConf();
+                                break;
+
+                            case SW_CONF_CHANGE:
+                                conf = msg;
+                                updateSelected();
+                                break;
+
+                            case SW_READY:
+                                console.log("sw ready");
+                                showIcons();
+                                sendMsgToSw(PAGE_CONF_GET);
+                                break;
+                        }
+                    }
+
+                    function onSwFail(err) {
+                        txtURL.value = err;
+                    }
+
+                    selNode.onchange = function () {
+                        const item = this.options[this.selectedIndex];
+                        const node = item.value;
+                        conf.node_default = node;
+                        sendMsgToSw(PAGE_CONF_SET, conf);
+                    };
+
+                    function sendMsgToSw(cmd, val) {
+                        const ctl = sw.controller;
+                        if (!ctl) {
+                            console.log("ctl is null");
+                            return;
+                        }
+                        ctl.postMessage([cmd, val]);
+                    }
+
+                    const SITE_LIST = [
+                        ["google", "www.giybf.com/"],
+                        ["youtube", "www.youtube.com/"],
+                        ["twitter", "www.twitter.com/"],
+                        ["flickr", "www.pornhub.com/"],
+                        ["quora", "www.quora.com/"],
+                        ["twitch", "www.twitch.tv/"],
+                        ["reddit", "www.reddit.com"],
+                        ["wiki", "en.wikipedia.org/"],
+                        ["gist", "gist.github.com/"],
+                        ["facebook", "www.facebook.com/"],
+                        ["blogger", "www.blogger.com/"],
+                    ];
+
+                    function showIcons() {
+                        list.innerHTML = SITE_LIST.map((v) => {
+                            let [id, url] = v;
+                            url = url || `www.${id}.com/`;
+                            return `\
          <a rel="noopener noreferrer" href=./-----https://${url}>\
-         <img width=128 height=128 src=__sys__/assets/ico/${id}.png><\/a>`
-           }).join('')
-         }
-         
-         function addNodeItem(id, text) {
-           const optEl = document.createElement('option')
-           optEl.id = '--' + id
-           optEl.text = text
-           optEl.value = id
-           selNode.appendChild(optEl)
-         }
-         
-         function updateSelected() {
-           const id = conf.node_default
-           const item = document.getElementById('--' + id)
-           if (item) {
-             item.selected = true
-           } else {
-             console.warn('unknown node:', id)
-           }
-         }
-         
-         function showConf() {
-           for (const [id, node] of Object.entries(conf.node_map)) {
-             if (!node.hidden) {
-               addNodeItem(id, node.label)
-             }
-           }
-           updateSelected()
-         }
-      </script>
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-         <p class="mb-1">CHINTU CLOUD (A Fork Of Bhadoo Cloud)</p>
-      </footer>
-   </body>
+         <img width=128 height=128 src=__sys__/assets/ico/${id}.png><\/a>`;
+                        }).join("");
+                    }
+
+                    function addNodeItem(id, text) {
+                        const optEl = document.createElement("option");
+                        optEl.id = "--" + id;
+                        optEl.text = text;
+                        optEl.value = id;
+                        selNode.appendChild(optEl);
+                    }
+
+                    function updateSelected() {
+                        const id = conf.node_default;
+                        const item = document.getElementById("--" + id);
+                        if (item) {
+                            item.selected = true;
+                        } else {
+                            console.warn("unknown node:", id);
+                        }
+                    }
+
+                    function showConf() {
+                        for (const [id, node] of Object.entries(conf.node_map)) {
+                            if (!node.hidden) {
+                                addNodeItem(id, node.label);
+                            }
+                        }
+                        updateSelected();
+                    }
+                </script>
+                <footer class="my-5 pt-5 text-muted text-center text-small">
+                    <p class="mb-1">A FORK OF BHADOO PROXY</p>
+                </footer>
+            </div>
+        </div>
+    </body>
 </html>
