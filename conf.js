@@ -15,15 +15,15 @@ jsproxy_config({
         'demo-hk': {
             label: 'HONGKONG PROXY',
             lines: {
-                // Host: weight
-                'node-aliyun-hk-1.etherdream.com:8443': 1,
-                'node-aliyun-hk-2.etherdream.com:8443': 2,
+                'b.hehe.workers.dev:8443': 1, // Host: weight
+                'b.lulu.workers.dev:8443': 2,
+                'b.jsproxy.workers.dev:8443': 3,
             }
         },
         'demo-sg': {
             label: 'SINGAPORE PROXY',
             lines: {
-                'node-aliyun-sg.etherdream.com:8443': 1,
+                'b.007.workers.dev:8443': 1,
             },
         },
         'mysite': {
@@ -32,7 +32,6 @@ jsproxy_config({
                 [location.host]: 1,
             }
         },
-        // This node is used to load large-volume static resources
         'cfworker': {
             label: '',
             hidden: true,
