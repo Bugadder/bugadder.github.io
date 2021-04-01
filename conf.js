@@ -13,7 +13,7 @@ jsproxy_config({
     // Node configuration not configured ccorrectly
     node_map: {
         "demo-hk": {
-            label: "HONGKONG PROXY",
+            label: "HONGKONG-PROXY",
             lines: {
                 "b.hehe.workers.dev:8443": 1, // Host: weight
                 "b.lulu.workers.dev:8443": 2,
@@ -21,13 +21,13 @@ jsproxy_config({
             },
         },
         "demo-sg": {
-            label: "SINGAPORE PROXY",
+            label: "SINGAPORE-PROXY",
             lines: {
                 "b.007.workers.dev:8443": 1,
             },
         },
         mysite: {
-            label: "AUTO PROXY",
+            label: "AUTO-PROXY",
             lines: {
                 [location.host]: 1,
             },
