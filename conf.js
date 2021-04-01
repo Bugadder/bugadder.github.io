@@ -50,8 +50,8 @@ jsproxy_config({
     /**
      * Default node
      */
-    node_default: "mysite",
-    // node_default: /jsproxy-demo\.\w+$/.test(location.host) ? 'demo-hk' : 'mysite',
+    // node_default: "mysite",
+    node_default: /jsproxy-demo\.\w+$/.test(location.host) ? 'demo-hk' : 'mysite',
 
     /**
      * Acceleration node
