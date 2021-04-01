@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script async src="https://arc.io/widget.min.js#iidD4GEB"></script>
         <title>CHINTU PROXY</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
@@ -25,9 +24,8 @@
                 width: 100%;
                 font-size: 1.5em;
             }
-            #list {
+            #list a {
                 margin: 1em;
-                border-radius: 20%;
             }
         </style>
     </head>
@@ -59,6 +57,13 @@
 
                     sw.addEventListener("message", onSwMsg);
                     sendMsgToSw(PAGE_READY_CHECK);
+
+                    function popup(url) {
+                        const link = document.createElement("a");
+                        link.rel = "noopener noreferrer";
+                        link.href = url;
+                        link.click();
+                    }
 
                     btnGo.onclick = function () {
                         const text = txtURL.value.trim();
@@ -117,17 +122,17 @@
                     }
 
                     const SITE_LIST = [
-                        ["google", "www.giybf.com/"],
-                        ["youtube", "www.youtube.com/"],
-                        ["twitter", "www.twitter.com/"],
-                        ["flickr", "www.pornhub.com/"],
-                        ["quora", "www.quora.com/"],
+                        ["google", ""],
+                        ["youtube", ""],
+                        ["twitter", "twitter.com/google"],
+                        ["flickr", ""],
+                        ["quora", "www.quora.com/topic/JavaScript-programming-language"],
                         ["twitch", "www.twitch.tv/"],
-                        ["reddit", "www.reddit.com"],
-                        ["wiki", "en.wikipedia.org/"],
+                        ["reddit", ""],
+                        ["wiki", "zh.wikipedia.org/"],
                         ["gist", "gist.github.com/"],
-                        ["facebook", "www.facebook.com/"],
-                        ["blogger", "www.blogger.com/"],
+                        ["facebook", "facebook.com/Google/"],
+                        ["blogger", ""],
                     ];
 
                     function showIcons() {
@@ -135,8 +140,8 @@
                             let [id, url] = v;
                             url = url || `www.${id}.com/`;
                             return `\
-         <a rel="noopener noreferrer" href=./-----https://${url}>\
-         <img width=128 height=128 src=__sys__/assets/ico/${id}.png><\/a>`;
+<a rel="noopener noreferrer" href=./-----https://${url}>\
+<img width=128 height=128 src=__sys__/assets/ico/${id}.png></a>`;
                         }).join("");
                     }
 
