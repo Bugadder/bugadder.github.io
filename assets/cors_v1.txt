@@ -5,11 +5,11 @@
 ssl.google-analytics.com
 
 #captcha
-pki.goog
-gstatic.com
-googleapis.com
+www.pki.goog
+www.gstatic.com
+www.googleapis.com
 apis.google.com
-www.google.com/recaptcha
+www.google.com
 
 # [public]
 cdn.jsdelivr.net
