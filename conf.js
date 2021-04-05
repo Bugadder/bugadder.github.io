@@ -1,5 +1,5 @@
 jsproxy_config({
-    // The current configuration version (recorded in the log for troubleshooting)
+    // The current configuration version (recorded in the log for troubleshooting ) 
     // Each time the configuration is modified, this value needs to be increased, otherwise it will not take effect.
     // By default, the configuration is automatically downloaded every 5 minutes. If you want to verify immediately, you can access it in privacy mode.
     ver: "110",
