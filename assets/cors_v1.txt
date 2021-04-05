@@ -6,7 +6,7 @@ ssl.google-analytics.com
 www.google.com
 m.google.com
 google.com
-www.gstatic.com/recaptcha/releases/*
+www.gstatic.com
 
 # [public]
 cdn.jsdelivr.net
