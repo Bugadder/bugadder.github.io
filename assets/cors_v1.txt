@@ -4,13 +4,6 @@
 # google
 ssl.google-analytics.com
 
-#captcha
-www.pki.goog
-www.gstatic.com
-www.googleapis.com
-apis.google.com
-www.google.com
-
 # [public]
 cdn.jsdelivr.net
 unpkg.com
