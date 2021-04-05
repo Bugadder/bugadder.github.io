@@ -9,6 +9,7 @@ pki.goog
 gstatic.com
 googleapis.com
 apis.google.com
+www.google.com/recaptcha
 
 # [public]
 cdn.jsdelivr.net
