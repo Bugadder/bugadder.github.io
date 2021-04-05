@@ -3,6 +3,9 @@
 
 # google
 ssl.google-analytics.com
+www.google.com
+m.google.com
+google.com
 
 # [public]
 cdn.jsdelivr.net
