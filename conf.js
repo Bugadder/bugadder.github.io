@@ -15,9 +15,8 @@ jsproxy_config({
         'demo-hk': {
             label: "HONGKONG-PROXY",
             lines: {
-                "b.hehe.workers.dev:8443": 1, // Host: weight
-                "b.lulu.workers.dev:8443": 2,
-                "b.jsproxy.workers.dev:8443": 3,
+                "b.lulu.workers.dev:8443": 1, // Host: weight
+                "b.jsproxy.workers.dev:8443": 2,
             }
         },
         'demo-sg': {
@@ -27,7 +26,7 @@ jsproxy_config({
             },
         },
         'mysite': {
-            label: 'Current site',
+            label: 'DEFAULT-PROXY',
             lines: {
                 [location.host]: 1,
             }
