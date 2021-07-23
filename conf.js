@@ -12,7 +12,7 @@ jsproxy_config({
 
     // Node configuration not configured ccorrectly
     node_map: {
-        "demo-hk": {
+        'demo-hk': {
             label: "HONGKONG-PROXY",
             lines: {
                 "b.hehe.workers.dev:8443": 1, // Host: weight
@@ -20,26 +20,26 @@ jsproxy_config({
                 "b.jsproxy.workers.dev:8443": 3,
             },
         },
-        "demo-sg": {
+        'demo-sg': {
             label: "SINGAPORE-PROXY",
             lines: {
                 "b.007.workers.dev:8443": 1,
             },
         },
-        mysite: {
+        'mysite': {
             label: "AUTO-PROXY",
             lines: {
                 [location.host]: 1,
             },
         },
-        cfworker: {
+        'cfworker': {
             label: "",
-            hidden: true,
+            hidden: false,
             lines: {
                 // Paid version (high weight）
                 //'node-cfworker-2.etherdream.com': 4,
                 // Free version (low weight, share some costs)
-                //'b.007.workers.dev': 1,
+                'b.007.workers.dev': 1,
                 //'b.hehe.workers.dev': 1,
                 //'b.lulu.workers.dev': 1,
                 //'b.jsproxy.workers.dev': 1,
@@ -47,11 +47,13 @@ jsproxy_config({
         },
     },
 
-    /**
-     * Default node
-     */
-    // node_default: "mysite",
-    node_default: /jsproxy-demo\.\w+$/.test(location.host) ? 'demo-hk' : 'mysite',
+    _node_default: /jsproxy-demo\.\w+$/.test(location.host) ? 'demo-hk' : 'mysite',
+    get node_default() {
+        return this._node_default;
+    },
+    set node_default(value) {
+        this._node_default = value;
+    },
 
     /**
      * Acceleration node
