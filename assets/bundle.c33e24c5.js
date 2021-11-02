@@ -179,7 +179,7 @@
                 "www.facebook.com": ["facebook", "fb", "f"],
                 "twitter.com": ["twitter", "tw", "t"],
             },
-            _ = "https://duckduckgo.com/?q=%s&kp=-2&kl=us-en&ia=web&k1=-1";
+            _ = "https://start.duckduckgo.com/?q=%s&kp=-2&kl=us-en&ia=web&k1=-1";
         let q;
         function E(a) {
             const o = a.substr(u),
