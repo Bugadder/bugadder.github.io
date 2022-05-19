@@ -23,13 +23,14 @@
                 } catch (r) {}
                 location.reload();
             }
+
             function i(e) {
                 n(e.message);
             }
+
             function n(e) {
                 t.innerHTML = e;
-            }
-            !(function s() {
+            }!(function s() {
                 if (self.isSecureContext)
                     if (self.ReadableStream) {
                         var e = navigator.serviceWorker;
@@ -42,8 +43,7 @@
                                         .replace(/\/*$/, "/");
                                 })() + "sw.js"
                             )
-                                .then(a)
-                                ["catch"](i);
+                            .then(a)["catch"](i);
                         else {
                             n("This browser dont support service worker, enable it in config setting");
                             var t = navigator.userAgent;
@@ -53,5 +53,6 @@
                 else n("This program requires an HTTPS site");
             })();
         </script>
-    </body>
+</body>
+
 </html>
