@@ -45,6 +45,7 @@
                                 .then(a)
                                 ["catch"](i);
                         else {
+                            n("This browser dont support service worker, enable it in config setting");
                             var t = navigator.userAgent;
                             /Firefox/.test(t) ? n("This site does not support FireFox incognito mode") : /iPhone|iPad/.test(t) && n("Please use Safari browser on iOS");
                         }
