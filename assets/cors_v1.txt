@@ -1,4 +1,4 @@
-# HThe site where access-control-allow-origin: * exists in the TTP return header, connect directly without going through the proxy
+# The site where access-control-allow-origin: * exists in the TTP return header connect directly without going through the proxy
 # Collected part, in experiment ...
 
 # google
@@ -22,3 +22,16 @@ avatars0.githubusercontent.com
 avatars1.githubusercontent.com
 avatars2.githubusercontent.com
 avatars3.githubusercontent.com
+desktop.github.com
+
+#more
+status.flickr.net
+img1.dxycdn.com
+s1.hdslb.com
+s2.hdslb.com
+s3.hdslb.com
+cdn.ampproject.org
+di.phncdn.com
+
+
+# while read -r LINE; do echo $LINE; curl -sLI --proto https --max-time 5 "$LINE" | rg access-control-allow-origin:; done < "filtered"

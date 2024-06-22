@@ -10,7 +10,7 @@ jsproxy_config({
         ver: 62
     },
 
-    // Node configuration not configured ccorrectly
+    // Node configuration not configured correctly
     node_map: {
         'demo-hk': {
             label: "HONGKONG-PROXY",
